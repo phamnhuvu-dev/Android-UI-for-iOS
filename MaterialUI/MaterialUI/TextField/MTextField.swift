@@ -11,7 +11,9 @@ import UIKit
 @IBDesignable
 class MTextField: UITextField {
     
-    let underline = UIView()
+    private let underline = UIView()
+    private var color: UIColor!
+    private var colorHighLight: UIColor!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,10 +33,29 @@ class MTextField: UITextField {
             ])
     }
     
+    var underlineColor: UIColor? {
+        get { return color }
+        set (color) {
+            self.color = color
+            underline.backgroundColor = color
+        }
+    }
+    
+    var underlineColorHighLight: UIColor? {
+        get { return colorHighLight }
+        set (color) { self.colorHighLight = color }
+    }
+    
+    var underlineSize: CGFloat {
+        get { return underline.frame.height }
+        set (size) {
+            underline.heightAnchor.constraint(equalToConstant: size).isActive = true
+        }
+    }
+    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         custom()
         underline.prepareForInterfaceBuilder()
     }
-
 }

@@ -14,10 +14,12 @@ class MCheckbox: UIView {
     private var callback: ((_ state: Bool) -> Void)?
     private var check: Bool = false
     
-    let title = UILabel()
-    let imageChecked = UIImage(named: "CheckedBox")
-    let imageUncheck = UIImage(named: "UncheckBox")
-    let box = UIImageView()
+    private var imageChecked: UIImage?
+    private var imageUncheck: UIImage?
+    
+    //// Public box and text for customing view
+    public let box = UIImageView()
+    public let text = UILabel()
     
     var delegate: ((_ state: Bool) -> Void)? {
         get { return callback }
@@ -30,6 +32,12 @@ class MCheckbox: UIView {
     }
     
     func custom() {
+        //// init default image
+        let bundle = Bundle(for: type(of: self))
+        imageChecked = UIImage(named: "CheckedBox", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        imageUncheck = UIImage(named: "UncheckBox", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        
+        box.tintColor = UIColor.black
         box.image = imageUncheck
         box.translatesAutoresizingMaskIntoConstraints = false
         addSubview(box)
@@ -40,19 +48,19 @@ class MCheckbox: UIView {
             box.leftAnchor.constraint(equalTo: self.leftAnchor),
             ])
         
-        title.text = "Content"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(title)
+        text.text = "Content"
+        text.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(text)
         NSLayoutConstraint.activate([
-            title.leftAnchor.constraint(equalTo: box.rightAnchor),
-            title.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            title.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            title.rightAnchor.constraint(equalTo: self.rightAnchor)
+            text.leftAnchor.constraint(equalTo: box.rightAnchor),
+            text.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            text.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            text.rightAnchor.constraint(equalTo: self.rightAnchor)
             ])
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(click)))
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(click(checkbox:))))
     }
     
-    @objc func click() {
+    @objc private func click(checkbox: MCheckbox) {
         if check {
             box.image = imageUncheck
         } else {
@@ -62,10 +70,14 @@ class MCheckbox: UIView {
         callback?(check)
     }
     
+//    var boxColor: UIColor {
+//        get { return box.tintColor }
+//        set (color) {box.tintColor = color }
+//    }
+    
     override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
         custom()
-        box.prepareForInterfaceBuilder()
-        title.prepareForInterfaceBuilder()
+        super.prepareForInterfaceBuilder()
+        
     }
 }
