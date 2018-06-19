@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E4C996220D8B31D00EFE101 /* MCheckboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4C996120D8B31D00EFE101 /* MCheckboxDelegate.swift */; };
+		8E4C996720D8E36100EFE101 /* DrawerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4C996620D8E36100EFE101 /* DrawerNavigation.swift */; };
 		8EF62B6520D76CDF00F5DF8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF62B6420D76CDF00F5DF8D /* AppDelegate.swift */; };
 		8EF62B6720D76CDF00F5DF8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF62B6620D76CDF00F5DF8D /* ViewController.swift */; };
 		8EF62B6A20D76CDF00F5DF8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62B6820D76CDF00F5DF8D /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E4C996120D8B31D00EFE101 /* MCheckboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCheckboxDelegate.swift; sourceTree = "<group>"; };
+		8E4C996620D8E36100EFE101 /* DrawerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerNavigation.swift; sourceTree = "<group>"; };
 		8EF62B6120D76CDF00F5DF8D /* MaterialUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaterialUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF62B6420D76CDF00F5DF8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EF62B6620D76CDF00F5DF8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E4C996320D8E2F400EFE101 /* DrawerNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				8E4C996620D8E36100EFE101 /* DrawerNavigation.swift */,
+			);
+			path = DrawerNavigation;
+			sourceTree = "<group>";
+		};
 		8EF62B5820D76CDF00F5DF8D = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +74,7 @@
 		8EF62B6320D76CDF00F5DF8D /* MaterialUI */ = {
 			isa = PBXGroup;
 			children = (
+				8E4C996320D8E2F400EFE101 /* DrawerNavigation */,
 				8EF62B7F20D7A10000F5DF8D /* RadioButtonGroup */,
 				8EF62B7C20D799CA00F5DF8D /* TextField */,
 				8EF62B7620D76CF200F5DF8D /* Checkbox */,
@@ -79,9 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				8EF62B7820D76D2800F5DF8D /* MCheckbox.swift */,
+				8E4C996120D8B31D00EFE101 /* MCheckboxDelegate.swift */,
 			);
-			name = Checkbox;
-			path = "Checkbõ";
+			path = Checkbox;
 			sourceTree = "<group>";
 		};
 		8EF62B7C20D799CA00F5DF8D /* TextField */ = {
@@ -178,6 +191,8 @@
 				8EF62B7920D76D2800F5DF8D /* MCheckbox.swift in Sources */,
 				8EF62B6520D76CDF00F5DF8D /* AppDelegate.swift in Sources */,
 				8EF62B8220D7A16000F5DF8D /* MRadioButtonGroup.swift in Sources */,
+				8E4C996720D8E36100EFE101 /* DrawerNavigation.swift in Sources */,
+				8E4C996220D8B31D00EFE101 /* MCheckboxDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

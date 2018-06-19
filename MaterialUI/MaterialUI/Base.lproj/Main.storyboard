@@ -18,27 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZU-qP-WEu" customClass="MCheckbox" customModule="MaterialUI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="81.5" height="20.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztv-OD-h7q" customClass="DrawerNavigation" customModule="MaterialUI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="240" height="647"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="zfX-mh-mHD"/>
+                                </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ach-TP-uBJ" customClass="MTextField" customModule="MaterialUI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="40.5" width="81.5" height="17"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vZU-qP-WEu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8ee-5H-P10"/>
-                            <constraint firstItem="Ach-TP-uBJ" firstAttribute="trailing" secondItem="vZU-qP-WEu" secondAttribute="trailing" id="AfE-po-Uh5"/>
-                            <constraint firstItem="Ach-TP-uBJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XUh-KH-HC2"/>
-                            <constraint firstItem="Ach-TP-uBJ" firstAttribute="top" secondItem="vZU-qP-WEu" secondAttribute="bottom" id="pt3-ZS-Pv0"/>
-                            <constraint firstItem="vZU-qP-WEu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u7V-rA-DB7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ztv-OD-h7q" secondAttribute="bottom" id="4lz-So-4NU"/>
+                            <constraint firstItem="ztv-OD-h7q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RW6-aD-0dV"/>
+                            <constraint firstItem="ztv-OD-h7q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tHW-67-hQ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="dr" destination="ztv-OD-h7q" id="IhP-N6-48Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

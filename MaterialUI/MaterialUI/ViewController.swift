@@ -10,9 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var dr: DrawerNavigation!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+            self.dr.layer.removeAllAnimations()
+            
+        }   
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.dr.open(false)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.dr.open(true)
+        }
     }
 
     override func didReceiveMemoryWarning() {

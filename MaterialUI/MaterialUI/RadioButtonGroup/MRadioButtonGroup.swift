@@ -10,8 +10,14 @@ import UIKit
 
 class MRadioButtonGroup: UIStackView {
     
+    private let mRadioButtons = Array<MRadioButton>()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+    }
+    
+    private func custom() {
         
     }
 }

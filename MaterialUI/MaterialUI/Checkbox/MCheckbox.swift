@@ -11,25 +11,54 @@ import UIKit
 @IBDesignable
 class MCheckbox: UIView {
     
-    private var callback: ((_ state: Bool) -> Void)?
-    private var check: Bool = false
-    
-    private var imageChecked: UIImage?
-    private var imageUncheck: UIImage?
+    private var mDelegate: MCheckboxDelegate?
+    private var mCheck: Bool = false
     
     //// Public box and text for customing view
     public let box = UIImageView()
     public let text = UILabel()
     
-    var delegate: ((_ state: Bool) -> Void)? {
-        get { return callback }
-        set (callback) { self.callback = callback }
+    private var imageChecked: UIImage?
+    private var imageUncheck: UIImage?
+    private var mBoxColor: UIColor! = UIColor.black
+    private var mTextColor: UIColor! = UIColor.black
+    
+    
+    @IBInspectable var boxColor: UIColor {
+        get { return mBoxColor }
+        set (color) {
+            mBoxColor = color
+            box.tintColor = color
+        }
+    }
+    
+    @IBInspectable var textColor: UIColor {
+        get { return mTextColor }
+        set (color) {
+            mTextColor = color
+            text.textColor = color
+        }
+    }
+    
+    @IBInspectable var check: Bool {
+        get { return mCheck }
+        set (check) {
+            mCheck = check
+            changeImage()
+        }
+    }
+    
+    var delegate: MCheckboxDelegate? {
+        get { return mDelegate }
+        set (delegate) { self.mDelegate = delegate }
     }
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         custom()
     }
+    
     
     func custom() {
         //// init default image
@@ -37,8 +66,8 @@ class MCheckbox: UIView {
         imageChecked = UIImage(named: "CheckedBox", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         imageUncheck = UIImage(named: "UncheckBox", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         
-        box.tintColor = UIColor.black
-        box.image = imageUncheck
+        box.tintColor = mBoxColor
+        changeImage()
         box.translatesAutoresizingMaskIntoConstraints = false
         addSubview(box)
         NSLayoutConstraint.activate([
@@ -48,6 +77,7 @@ class MCheckbox: UIView {
             box.leftAnchor.constraint(equalTo: self.leftAnchor),
             ])
         
+        text.textColor = mTextColor
         text.text = "Content"
         text.translatesAutoresizingMaskIntoConstraints = false
         addSubview(text)
@@ -60,24 +90,23 @@ class MCheckbox: UIView {
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(click(checkbox:))))
     }
     
-    @objc private func click(checkbox: MCheckbox) {
-        if check {
-            box.image = imageUncheck
-        } else {
+    private func changeImage() {
+        if mCheck {
             box.image = imageChecked
+        } else {
+            box.image = imageUncheck
         }
-        check = !check
-        callback?(check)
     }
     
-//    var boxColor: UIColor {
-//        get { return box.tintColor }
-//        set (color) {box.tintColor = color }
-//    }
+    @objc private func click(checkbox: MCheckbox) {
+        mCheck = !mCheck
+        changeImage()
+        mDelegate?.checkBox(checkbox: checkbox, isCheck: mCheck)
+    }
+    
     
     override func prepareForInterfaceBuilder() {
-        custom()
         super.prepareForInterfaceBuilder()
-        
+        custom()
     }
 }
